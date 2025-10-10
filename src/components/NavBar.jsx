@@ -1,5 +1,7 @@
 import '../css/Navbar.css';
 import CartWidget from './CartWidget';
+import ChatWidget from './ChatWidget';
+import UserWidget from './UserWidget';
 
 const NavBar = () => {
     return (
@@ -44,50 +46,8 @@ const NavBar = () => {
             </div>
             <div className="d-flex align-items-center gap-2 position-relative">
                 <CartWidget />
-
-                <button className="btn p-0 ms-3 position-relative btn-consulta" type="button" aria-label="Chat" id="btn-chat">
-                <i className="bi bi-chat-dots fs-3 color-nav"></i>
-                <span className="position-absolute top-0 start-100 translate-middle  chat-consulta rounded-pill bg-danger text-white p-1">
-                    0 <span className="visually-hidden">mensajes en el chat</span>
-                </span>
-                </button>
-
-                <div className="contenedor-consulta esconder-consulta">
-                    <div className="carrito-consultas">
-                            <div className="carrito-items-consultas">
-                                <h3 className="text-center ">Consultas: </h3>
-
-                                <div className="info-consultas">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <button className="btn p-0 ms-3" type="button" aria-label="Perfil">
-                    <i className="bi bi-person-circle fs-3 color-nav"></i>
-                </button>
-
-                <div className="contenedor-carrito esconder-carrito">
-                    <div className="carrito">
-                        <div className="carrito-productos">
-                            <div className="carrito-items-contenedor">
-
-                                <h3 className="text-center my-3">Carrito de Compras</h3>
-                              
-                                <div className="info-carrito">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="carrito-total">
-                        <div className="carrito-comprar">
-                        <h3>Total:</h3>
-                        <span className="total-pagar"></span>
-                        </div>
-                        <button className="btn btn-dark">Comprar</button>
-                    </div>
-
-                </div>
+                <ChatWidget />
+                <UserWidget />
             </div>
         </div>
     </nav>
