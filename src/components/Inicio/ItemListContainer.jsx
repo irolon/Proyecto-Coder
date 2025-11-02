@@ -11,7 +11,6 @@ const ItemListContainer = ({ titulo, subtitulo }) => {
                     <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto', color: 'white' }}>
                         {subtitulo}
                     </p>
-                    <a href="#" className="btn btn-outline-light btn-lg px-4">Ver colección</a>
                 </div>
             </div>
 
