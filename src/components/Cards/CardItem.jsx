@@ -4,7 +4,7 @@ const CardItem = ({ producto }) => {
     const imgUrl = new URL(`../../assets/img/Img-reloj-${producto.id}.jpg`, import.meta.url).href;
 
   return (
-    <div className="d-flex flex-column align-items-center mt-5">
+    <div className="d-flex flex-column align-items-center mt-5 ">
         <h1 className="mt-5">Detalles del Producto</h1>
     
         <div className="container mt-5 d-flex justify-content-center align-items-center"  >
