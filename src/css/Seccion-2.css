@@ -1,0 +1,27 @@
+.hero2{
+  position: relative;
+  min-height: 40vh;
+  background: url('../Assets/img/reloj-inicio.jpg') center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-div-2{
+  min-height:40vh;
+}
+
+.hero-div-2 div{
+  max-width:640px;
+}
+.hero-div-2 h1{
+  max-width: 1000px;
+  line-height:1.1;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.7);
+}
+.hero2::after{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,.45); 
+  z-index: 0;                     
+}
+.hero2 > *{ position: relative; z-index: 1; }

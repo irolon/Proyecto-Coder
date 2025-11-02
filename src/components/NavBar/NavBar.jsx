@@ -1,7 +1,8 @@
-import '../css/Navbar.css';
-import CartWidget from './CartWidget';
-import ChatWidget from './ChatWidget';
-import UserWidget from './UserWidget';
+import '../../css/Navbar.css';
+import CartWidget from '../NavBar/CartWidget';
+import ChatWidget from '../NavBar/ChatWidget';
+import UserWidget from '../NavBar/UserWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -10,7 +11,7 @@ const NavBar = () => {
 
             <div className="logo">
 
-                <a href="#" className="navbar-brand d-flex align-items-center">
+                <a href="/" className="navbar-brand d-flex align-items-center">
                  <span className="logo-svg" aria-label="marca"></span>
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
@@ -31,9 +32,9 @@ const NavBar = () => {
                         </a>
 
                         <ul className="dropdown-menu mt-2" aria-labelledby="dropdown-menu" >
-                            <li><a href="#" className="dropdown-item color-nav"> Relojes Clasicos</a></li>
-                            <li><a href="#" className="dropdown-item color-nav"> Relojes Deportivos</a></li>
-                            <li><a href="#" className="dropdown-item color-nav"> Relojes Inteligentes</a></li>
+                            <li><Link to="/productos-clasicos" className="dropdown-item color-nav"> Relojes Clasicos</Link></li>
+                            <li><Link to="/productos-deportivos" className="dropdown-item color-nav"> Relojes Deportivos</Link></li>
+                            <li><Link to="/productos-inteligentes" className="dropdown-item color-nav"> Relojes Inteligentes</Link></li>
 
                         </ul>
                     </li>

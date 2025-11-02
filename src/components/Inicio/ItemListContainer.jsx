@@ -1,4 +1,4 @@
-import '../css/Seccion1.css';
+import '../../css/Seccion1.css';
 
 const ItemListContainer = ({ titulo, subtitulo }) => {
     return (

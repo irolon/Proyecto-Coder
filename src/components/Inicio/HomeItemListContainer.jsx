@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getProductos } from "../assets/mock/AsyncService";
-import ItemList from "./ItemList";
-import CardImgCenter from "./CardImgCenter";
-import BtnVerMas from "./BtnVerMas";
+import { getProductos } from "../../assets/mock/AsyncService";
+import ItemList from "../Cards/ItemList";
+import CardImgCenter from "../Inicio/CardImgCenter";
+import BtnVerMas from "../Btn/BtnVerMas";
 
 const HomeListContainer = () => {
     const [prod, setProductos] = useState([]);
@@ -21,21 +21,20 @@ const HomeListContainer = () => {
     const segundosCuatroSmart = prod.slice(12, 16);
 
     return (
-  <div>
-    {/* Sección 1 */}
-    <div className="container my-5">
-        <div className="row">
-            <div className="col">
-            <h2 className="text-center mb-5">Encontrá tu próximo reloj</h2>
+    <div>
+        <div className="container my-5">
+            <div className="row">
+                <div className="col">
+                <h2 className="text-center mb-5">Encontrá tu próximo reloj</h2>
+                </div>
             </div>
+
+            <ItemList productos={primerosCuatro}  />
+
+            <BtnVerMas   visible={!mostrarMasPrimera && prod.length > 4}
+                        onClick={() => setMostrarMasPrimera(true)} />
+            {mostrarMasPrimera && (<ItemList productos={segundosCuatro}  />)}
         </div>
-
-        <ItemList productos={primerosCuatro}  />
-
-        <BtnVerMas   visible={!mostrarMasPrimera && prod.length > 4}
-                     onClick={() => setMostrarMasPrimera(true)} />
-        {mostrarMasPrimera && (<ItemList productos={segundosCuatro}  />)}
-    </div>
 
         <CardImgCenter />
         <div className="container my-5">
@@ -48,7 +47,7 @@ const HomeListContainer = () => {
             <ItemList productos={primerosCuatroSmart} />
             <BtnVerMas   visible={!mostrarMasSegunda && prod.length > 4}
                                 onClick={() => setMostrarMasSegunda(true)} />
-                    {mostrarMasSegunda && (<ItemList productos={segundosCuatroSmart}  />)}
+            {mostrarMasSegunda && (<ItemList productos={segundosCuatroSmart}  />)}
         </div>
     </div>
     )

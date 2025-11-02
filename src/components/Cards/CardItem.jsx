@@ -1,0 +1,33 @@
+
+const CardItem = ({ producto }) => {
+
+    const imgUrl = new URL(`../../assets/img/Img-reloj-${producto.id}.jpg`, import.meta.url).href;
+
+  return (
+    <div className="d-flex flex-column align-items-center mt-5">
+        <h1 className="mt-5">Detalles del Producto</h1>
+    
+        <div className="container mt-5 d-flex justify-content-center align-items-center"  >
+            <div className="row g-4 align-items-center p-5" style={{ backgroundColor: '#dde1e6ff', borderRadius: '15px' }}>
+                <div className="col-12 col-md-auto text-center">
+                    <img src={imgUrl} alt={producto.modelo} className="img-fluid d-block mx-auto" />
+                </div>
+
+                <div className="col-12 col-md-6 ">
+                    <h2 className="mb-3">{producto.marca} {producto.modelo}</h2>
+                    <p className="mb-2"><strong>Precio:</strong> ${producto.precio}</p>
+                    <p className="mb-2"><strong>Descripción:</strong> {producto.descripcion}</p>
+                    <p className="mb-2"><strong>Categoría:</strong> {producto.categoria}</p>
+                    <p className="mb-3"><strong>Stock disponible:</strong> {producto.stock}</p>
+                    <button className="btn btn-primary">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+  );
+};
+
+export default CardItem;
