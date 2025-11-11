@@ -27,6 +27,6 @@ export const getProductos = () => {
             }else {
                 resolve(productos);
             }
-        }, 1000);
+        }, 1500);
     });
 };

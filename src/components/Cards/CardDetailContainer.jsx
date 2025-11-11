@@ -2,12 +2,16 @@ import { getProductos } from "../../assets/mock/AsyncService";
 import { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 import CardItem from "./CardItem";
+import LoaderComponent from "./LoaderComponent";
 
 const CardDetailContainer = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
+  
     const fetchProducto = async () => {
       try {
         const data = await getProductos();
@@ -16,7 +20,7 @@ const CardDetailContainer = () => {
       } catch (error) {
         console.error("Error cargando producto:", error);
       }
-    };
+    }  
     fetchProducto();
   }, [id]);
 
@@ -29,7 +33,7 @@ const CardDetailContainer = () => {
           <CardItem producto={producto} />
         </div>
       ) : (
-        <p className="text-center p-5">Cargando producto...</p>
+        <LoaderComponent />
       )}
     </div>
   );

@@ -1,11 +1,17 @@
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+
 
 const CartWidget = () => {
+    const { cart } = useContext(CartContext);
+    console.log(cart);
+    
     return (
         <div>
             <button className="btn position-relative p-0 btn-carrito" type="button" aria-label="Carrito">
                 <i className="bi bi-cart3 fs-3 color-nav"></i>
                 <span className="position-absolute top-0 start-100 translate-middle comprar rounded-pill bg-danger text-white p-1">
-                0 <span className="visually-hidden">productos en el carrito</span>
+                    0 <span className="visually-hidden">productos en el carrito</span>
                 </span>
             </button>
             <div className="contenedor-carrito esconder-carrito">

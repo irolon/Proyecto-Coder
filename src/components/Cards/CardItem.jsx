@@ -1,7 +1,19 @@
+import ItemCount from "./ItemCount";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const CardItem = ({ producto }) => {
-
     const imgUrl = new URL(`../../assets/img/Img-reloj-${producto.id}.jpg`, import.meta.url).href;
+
+    const { cart, additem } = useContext(CartContext);
+    console.log(cart);
+    const [purchase, setPurchase] = useState(false);
+
+    const onAdd = (cantidad) => {
+        console.log('Cantidad agregada:', cantidad);
+        additem(producto, cantidad);
+        setPurchase(true);
+    };
 
   return (
     <div className="d-flex flex-column align-items-center mt-5 ">
@@ -19,7 +31,11 @@ const CardItem = ({ producto }) => {
                     <p className="mb-2"><strong>Descripción:</strong> {producto.descripcion}</p>
                     <p className="mb-2"><strong>Categoría:</strong> {producto.categoria}</p>
                     <p className="mb-3"><strong>Stock disponible:</strong> {producto.stock}</p>
-                    <button className="btn btn-primary">Agregar al carrito</button>
+                    {purchase ? (
+                        <a href="/" className="btn btn-success">Finalizar Compra</a>
+                    ) : (
+                        <ItemCount stock={producto.stock} onAdd={onAdd} />
+                    )}
                 </div>
             </div>
         </div>

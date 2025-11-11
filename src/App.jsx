@@ -11,7 +11,7 @@ import ItemListContainer from './components/Inicio/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import SeccionRelojes from './components/Navegacion/SeccionRelojes';
-
+import { CartProvider } from './context/CartContext';
 
 import relojClasico from './Assets/img/Img-reloj-clasico.jpg'
 import relojInteligente from './Assets/img/img-div-centro.jpg'
@@ -23,12 +23,13 @@ function App() {
   return (
     <div className="d-flex flex-column min-vh-100">   
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={
-            <>
-              <ItemListContainer
-                titulo="Relojes diseñados para quienes valoran el tiempo"
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={
+              <>
+                <ItemListContainer
+                  titulo="Relojes diseñados para quienes valoran el tiempo"
                 subtitulo="Combiná elegancia y precisión en un solo accesorio."
               />
               <HomeListContainer />   
@@ -41,6 +42,7 @@ function App() {
           <Route path="/productos/:id" element={<CardDetailContainer />} />
 
           </Routes>
+        </CartProvider>
         <Footer />
       </BrowserRouter>
     </div>
