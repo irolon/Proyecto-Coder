@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CardItem = ({ producto }) => {
     const imgUrl = new URL(`../../assets/img/Img-reloj-${producto.id}.jpg`, import.meta.url).href;
@@ -32,7 +33,7 @@ const CardItem = ({ producto }) => {
                     <p className="mb-2"><strong>Categoría:</strong> {producto.categoria}</p>
                     <p className="mb-3"><strong>Stock disponible:</strong> {producto.stock}</p>
                     {purchase ? (
-                        <a href="/" className="btn btn-success">Finalizar Compra</a>
+                        <Link to="/cart" className="btn btn-success">Finalizar Compra</Link>
                     ) : (
                         <ItemCount stock={producto.stock} onAdd={onAdd} />
                     )}

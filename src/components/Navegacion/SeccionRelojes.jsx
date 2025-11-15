@@ -2,14 +2,19 @@ import '../../css/Seccion-2.css';
 import ItemList from '../Cards/ItemList';
 import { useEffect, useState } from 'react';
 import { getProductos } from '../../assets/mock/AsyncService';
-
+import LoaderComponent from '../Cards/LoaderComponent';
 
 const SeccionRelojes = ({ titulo, bg }) => {
     const [prod, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => { 
+        setLoading(true);
         getProductos()
-        .then((res)=>setProductos(res))
+        .then((res)=>{
+            setProductos(res);
+            setLoading(false);
+        })
         .catch((err)=>console.log(err))
     }, []);    
     
@@ -17,6 +22,7 @@ const SeccionRelojes = ({ titulo, bg }) => {
 
     return (
         <div>
+
             <section className="hero2" style={{ background: `url(${bg}) center/cover no-repeat` }}>
                 <div className="container d-flex justify-content-center align-items-center hero-div-2" >
                     <div className="text-end me-5 mt-5" >
@@ -25,6 +31,7 @@ const SeccionRelojes = ({ titulo, bg }) => {
                         </h1>
                     </div>
                 </div>
+                
 
             </section>   
             <div className="container my-5">
@@ -34,7 +41,10 @@ const SeccionRelojes = ({ titulo, bg }) => {
                     </div>
                 </div>
 
-                <ItemList productos={productosFiltrados}  />
+                {loading ? <LoaderComponent /> : (
+                    <ItemList productos={productosFiltrados}  />
+                )}
+                
 
             </div>                     
         </div>

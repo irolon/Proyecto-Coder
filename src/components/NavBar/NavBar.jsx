@@ -1,19 +1,37 @@
 import '../../css/Navbar.css';
 import CartWidget from '../NavBar/CartWidget';
-import ChatWidget from '../NavBar/ChatWidget';
-import UserWidget from '../NavBar/UserWidget';
 import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 
 const NavBar = () => {
+    const [cartOpen, setCartOpen] = useState(false);
+    const cartRef = useRef(null);
+    const handleCartClick = () => {
+        setCartOpen(prev => !prev);   
+    };
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (cartRef.current && !cartRef.current.contains(event.target)) {
+                setCartOpen(false);
+            }
+        };
+        if (cartOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [cartOpen]);
+
     return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
         <div className="container d-flex justify-content-between">
 
             <div className="logo">
 
-                <a href="/" className="navbar-brand d-flex align-items-center">
+                <Link to="/" className="navbar-brand d-flex align-items-center">
                  <span className="logo-svg" aria-label="marca"></span>
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                     aria-controls="menu" aria-expanded="false" aria-label="Mostrar - Ocultar menu">
                     <span className="navbar-toggler-icon"></span>
@@ -45,12 +63,11 @@ const NavBar = () => {
 
                 </ul>
             </div>
-            <div className="d-flex align-items-center gap-2 position-relative">
-                <CartWidget />
-                <ChatWidget />
-                <UserWidget />
+            <div className="d-flex align-items-center gap-2 position-relative" ref={cartRef}>
+                <CartWidget onClick={handleCartClick} isOpen={cartOpen}/>
             </div>
         </div>
+
     </nav>
     );
 }

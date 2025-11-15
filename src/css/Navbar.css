@@ -82,11 +82,12 @@ nav{
     top: 50px;
     right: 0;
     background-color: #fff;
-    width: 450px;
-    z-index: 1;
+    width: 500px;
+    z-index: 1000;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
-    
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .carrito-productos{

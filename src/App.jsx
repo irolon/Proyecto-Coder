@@ -17,6 +17,7 @@ import relojClasico from './Assets/img/Img-reloj-clasico.jpg'
 import relojInteligente from './Assets/img/img-div-centro.jpg'
 import relojDeportivo from './Assets/img/img-reloj-deportivo.jpg'
 import CardDetailContainer from './components/Cards/CardDetailContainer';
+import CartContainer from './components/Cards/CartContainer';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/productos-deportivos' element={<SeccionRelojes titulo="Relojes Deportivos" bg={relojDeportivo} />} />
           <Route path='/productos-inteligentes' element={<SeccionRelojes titulo="Relojes Inteligentes" bg={relojInteligente} />} />
           <Route path="/productos/:id" element={<CardDetailContainer />} />
+          <Route path='/cart' element={<CartContainer />} />
 
           </Routes>
         </CartProvider>
