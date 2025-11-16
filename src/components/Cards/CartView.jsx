@@ -17,7 +17,7 @@ const CartView = () => {
                     <div className="row g-0 align-items-center">
                         <div className="col-md-4">
                             <img 
-                                src={new URL(`../../assets/img/Img-reloj-${item.id}.jpg`, import.meta.url).href} 
+                                src={item.img} 
                                 className="img-fluid rounded-start" 
                                 alt={item.nombre || item.marca + ' ' + item.modelo}
                                 onError={(e) => {

@@ -29,7 +29,6 @@ function App() {
               <>
                 <ItemListContainer titulo="Relojes diseñados para quienes valoran el tiempo" subtitulo="Combiná elegancia y precisión en un solo accesorio."/>
                 <HomeListContainer />   
-                <CardForm />   
               </>
           } />
           <Route path='/category/:type'  element={<SeccionRelojes />} />

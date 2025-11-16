@@ -1,8 +1,84 @@
-import React from 'react'
+import React, { use, useState, useContext } from 'react'
+import CardForm from '../Cards/CardForm'
+import { collection, serverTimestamp } from 'firebase/firestore';
+import { CartContext } from '../../context/CartContext';
+import { addDoc } from 'firebase/firestore';
+import { db } from '../../service/firebase';
+import { Link } from 'react-router-dom';
+import EmptyCart from '../Cards/EmptyCart';
+
+
 
 const CheckOut = () => {
+  const [buyer, setBuyer] = useState({});
+  const [secondMail, setSecondMail] = useState('');
+  const [orderId, setOrderId] = useState(null);
+  const [error, setError] = useState(null);
+  const {cart, total, clearCart } = useContext(CartContext);
+
+
+  const buyerData =(e) => {
+    setBuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    })
+  }
+  
+  const finalizarCompra = (e) => {
+    e.preventDefault();
+    console.log('Datos del buyer:', buyer);
+    
+    if(!buyer.nombre || !buyer.apellido || !buyer.direccion || !buyer.email || !secondMail ) {
+      setError('Por favor complete todos los campos');
+      return;
+    }
+    if(!buyer.email || !secondMail || buyer.email !== secondMail){
+      setError("Los correos no coinciden");
+      return;
+    } else {
+      setError(null);
+      let order = {
+        comprador: buyer,
+        items: cart,
+        total: total(),
+        fecha: serverTimestamp(),
+      };
+      const ventas = collection(db, "Orders");
+        addDoc(ventas, order)
+        .then((res) => {
+          setOrderId(res.id);
+          clearCart();
+        })
+        .catch((err) => console.log(err));
+    }
+    console.log(buyer);
+    
+  }
+
+  if(cart.length === 0 && !orderId) {
+    return <EmptyCart />
+  }
+
+
   return (
-    <div>CheckOut</div>
+    <>
+      {orderId ? (
+        <div className='d-flex justify-content-center align-items-center vh-100'>
+          <div className="alert alert-success text-center" role="alert">
+            <h4 className="alert-heading">¡Gracias por su compra!</h4>
+            <p>Su número de orden es: <strong>{orderId}</strong></p>
+            <hr />
+            <p className="mb-0">Le enviaremos un correo con los detalles de su compra.</p>
+            <Link className="btn btn-primary mt-4" to="/">Volver al inicio</Link>
+          </div>
+
+        </div>
+      ) : (
+        <CardForm buyerData={buyerData} finalizarCompra={finalizarCompra} error={error} />
+      )}
+        
+    </>
+
   )
 }
 

@@ -1,7 +1,6 @@
 import '../../css/Seccion-2.css';
 import ItemList from '../Cards/ItemList';
 import { useEffect, useState } from 'react';
-import { getProductos } from '../../assets/mock/AsyncService';
 import LoaderComponent from '../Cards/LoaderComponent';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../service/firebase';
