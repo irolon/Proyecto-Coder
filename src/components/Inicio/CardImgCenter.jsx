@@ -6,7 +6,7 @@ const bg = new URL('../../assets/img/img-div-centro.jpg', import.meta.url).href;
     return (
     <section
         className="coleccion position-relative d-flex align-items-center justify-content-center text-center text-white mt-5"
-        style={{ background: `url(${bg}) center/cover no-repeat`, minHeight: "60vh" }}>
+        style={{ background: `url(${'https://i.ibb.co/GvP3VmRK/Img-div-centro.jpg'}) center/cover no-repeat`, minHeight: "60vh" }}>
 
         <div className="position-absolute top-0 start-0 w-100 h-100" style={{ background: "rgba(0,0,0,0.4)" }}></div>
 

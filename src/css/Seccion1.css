@@ -1,7 +1,7 @@
 .hero{
   position: relative;
   min-height: 85vh;
-  background: url('../Assets/img/reloj-inicio.jpg') center/cover no-repeat;
+  background: url(https://i.ibb.co/spGXP6f4/reloj-inicio.jpg) center/cover no-repeat;
   overflow: hidden;
 }
 .hero-div{

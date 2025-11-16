@@ -50,9 +50,9 @@ const NavBar = () => {
                         </a>
 
                         <ul className="dropdown-menu mt-2" aria-labelledby="dropdown-menu" >
-                            <li><Link to="/productos-clasicos" className="dropdown-item color-nav"> Relojes Clasicos</Link></li>
-                            <li><Link to="/productos-deportivos" className="dropdown-item color-nav"> Relojes Deportivos</Link></li>
-                            <li><Link to="/productos-inteligentes" className="dropdown-item color-nav"> Relojes Inteligentes</Link></li>
+                            <li><Link to="/category/clasicos" className="dropdown-item color-nav"> Relojes Clasicos</Link></li>
+                            <li><Link to="/category/deportivos" className="dropdown-item color-nav"> Relojes Deportivos</Link></li>
+                            <li><Link to="/category/inteligentes" className="dropdown-item color-nav"> Relojes Inteligentes</Link></li>
 
                         </ul>
                     </li>

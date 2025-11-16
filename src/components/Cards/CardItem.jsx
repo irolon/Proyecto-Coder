@@ -15,6 +15,7 @@ const CardItem = ({ producto }) => {
         additem(producto, cantidad);
         setPurchase(true);
     };
+    console.log("iamgen + " + producto.img);
 
   return (
     <div className="d-flex flex-column align-items-center mt-5 ">
@@ -23,8 +24,9 @@ const CardItem = ({ producto }) => {
         <div className="container mt-5 d-flex justify-content-center align-items-center"  >
             <div className="row g-4 align-items-center p-5" style={{ backgroundColor: '#dde1e6ff', borderRadius: '15px' }}>
                 <div className="col-12 col-md-auto text-center">
-                    <img src={imgUrl} alt={producto.modelo} className="img-fluid d-block mx-auto" />
+                    <img src={producto.img} alt={producto.modelo} className="img-fluid d-block mx-auto" />
                 </div>
+
 
                 <div className="col-12 col-md-6 ">
                     <h2 className="mb-3">{producto.marca} {producto.modelo}</h2>

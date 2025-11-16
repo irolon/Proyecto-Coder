@@ -16,7 +16,7 @@ const CardNavView = ({cart, removeItem, isOpen, totalPrice}) => {
                                   <div key={item.id} className="item-carrito mb-3">
                                       <div className="d-flex justify-content-between align-items-center w-100">
                                           <div className='m-3'>
-                                                <img src={new URL(`../../assets/img/Img-reloj-${item.id}.jpg`, import.meta.url).href} alt={item.modelo} className="img-carrito" style={{width:'90px'}}/> 
+                                                <img src={item.img} alt={item.modelo} className="img-carrito" style={{width:'90px'}}/> 
                                           </div>
                                           <div>
                                             <p className="mb-0 text-muted">{item.modelo}</p>

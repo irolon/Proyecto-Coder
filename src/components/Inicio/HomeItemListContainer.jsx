@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { getProductos } from "../../assets/mock/AsyncService";
 import ItemList from "../Cards/ItemList";
 import CardImgCenter from "../Inicio/CardImgCenter";
 import BtnVerMas from "../Btn/BtnVerMas";
 import LoaderComponent from "../Cards/LoaderComponent";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db } from "../../service/firebase";
 
 const HomeListContainer = () => {
     const [prod, setProductos] = useState([]);
@@ -11,18 +12,32 @@ const HomeListContainer = () => {
     const [mostrarMasSegunda, setMostrarMasSegunda] = useState(false);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => { 
+
+    //FIREBASE
+    useEffect(() => {
         setLoading(true);
-        getProductos()
-        .then((res)=>setProductos(res))
-        .catch((err)=>console.log(err))
+        const prodColletction = collection(db, "Producto");
+        getDocs(prodColletction)
+        .then((res)=>{
+            const productos = res.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setProductos(productos);
+        })
+        .catch((err) => console.log(err))
         .finally(() => setLoading(false));
     }, []);
 
-    const primerosCuatro = prod.slice(0, 4);
-    const segundosCuatro = prod.slice(8, 12);
-    const primerosCuatroSmart = prod.slice(4, 8);
-    const segundosCuatroSmart = prod.slice(12, 16);
+
+    const productosClasicos = prod.filter(producto => producto.categoria === "Relojes Clasicos");
+    const productosDeportivos = prod.filter(producto => producto.categoria === "Relojes Deportivos");
+    const productosInteligentes = prod.filter(producto => producto.categoria === "Relojes Inteligentes");
+
+    const primerosCuatro = productosClasicos.slice(0, 4);
+    const segundosCuatro = productosDeportivos.slice(0, 4);
+    
+    const primerosCuatroSmart = productosInteligentes.slice(0, 4);
+    const segundosCuatroSmart = productosInteligentes.slice(4, 8);
+
+
 
     return (
     <div>

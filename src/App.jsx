@@ -3,21 +3,19 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import HomeListContainer from './components/Inicio/HomeItemListContainer';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import '../src/css/style.css'
+
 import CardForm from './components/Cards/CardForm';
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Inicio/ItemListContainer';
-import Footer from './components/Footer/Footer';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import SeccionRelojes from './components/Navegacion/SeccionRelojes';
-import { CartProvider } from './context/CartContext';
-
-import relojClasico from './Assets/img/Img-reloj-clasico.jpg'
-import relojInteligente from './Assets/img/img-div-centro.jpg'
-import relojDeportivo from './Assets/img/img-reloj-deportivo.jpg'
+import HomeListContainer from './components/Inicio/HomeItemListContainer';
+import CheckOut from './components/Checkout/CheckOut';
 import CardDetailContainer from './components/Cards/CardDetailContainer';
 import CartContainer from './components/Cards/CartContainer';
+import SeccionRelojes from './components/Navegacion/SeccionRelojes';
+import Footer from './components/Footer/Footer';
+import { CartProvider } from './context/CartContext';
 
 
 function App() {
@@ -29,19 +27,15 @@ function App() {
           <Routes>
             <Route path='/' element={
               <>
-                <ItemListContainer
-                  titulo="Relojes diseñados para quienes valoran el tiempo"
-                subtitulo="Combiná elegancia y precisión en un solo accesorio."
-              />
-              <HomeListContainer />   
-              <CardForm />   
-            </>
+                <ItemListContainer titulo="Relojes diseñados para quienes valoran el tiempo" subtitulo="Combiná elegancia y precisión en un solo accesorio."/>
+                <HomeListContainer />   
+                <CardForm />   
+              </>
           } />
-          <Route path='/productos-clasicos' element={<SeccionRelojes titulo="Relojes Clasicos" bg={relojClasico} />} />
-          <Route path='/productos-deportivos' element={<SeccionRelojes titulo="Relojes Deportivos" bg={relojDeportivo} />} />
-          <Route path='/productos-inteligentes' element={<SeccionRelojes titulo="Relojes Inteligentes" bg={relojInteligente} />} />
+          <Route path='/category/:type'  element={<SeccionRelojes />} />
           <Route path="/productos/:id" element={<CardDetailContainer />} />
           <Route path='/cart' element={<CartContainer />} />
+          <Route path='/checkout' element={<CheckOut />} />
 
           </Routes>
         </CartProvider>

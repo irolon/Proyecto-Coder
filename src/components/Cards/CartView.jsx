@@ -1,11 +1,12 @@
 import React from 'react'
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 
 
 const CartView = () => {
-    const {cart, removeItem} = useContext(CartContext);
+    const {cart, removeItem, clearCart} = useContext(CartContext);
   return (
     <div className="d-flex flex-column align-items-center mt-5 ">
         <h1 className='mt-5'>Carrito de Compras</h1>
@@ -41,6 +42,10 @@ const CartView = () => {
             ))}
             <div>
                 <h2>Total: ${cart.reduce((total, item) => total + (item.precio * item.cantidad), 0).toFixed(2)}</h2>
+            </div>
+            <div>
+                <Link to="/checkout" className='btn btn-primary btn-lg m-3' >Finalizar Compra</Link>
+                <button className='btn btn-danger btn-lg m-3' onClick={clearCart}>Vaciar carrito</button>
             </div>
         </div>
     </div>
