@@ -4,8 +4,8 @@ import { useContext } from "react";
 import CardNavView from "./CardNavView";
 
 
-const CartWidget = ({ onClick, isOpen }) => {
-    const { cart, removeItem,total , cartQty } = useContext(CartContext);
+const CartWidget = ({ onClick, isOpen, onCloseCart }) => {
+    const { cart, removeItem,total , cartQty, clearCart } = useContext(CartContext);
     
     const totalItems = cartQty();
     const totalPrice = total();
@@ -20,7 +20,7 @@ const CartWidget = ({ onClick, isOpen }) => {
                     </span>
                 )}
             </button>
-            <CardNavView cart={cart} removeItem={removeItem} isOpen={isOpen} totalPrice={totalPrice} />
+            <CardNavView cart={cart} removeItem={removeItem} isOpen={isOpen} totalPrice={totalPrice} clearCart={clearCart} onCloseCart={onCloseCart} />
         </div>
         
         

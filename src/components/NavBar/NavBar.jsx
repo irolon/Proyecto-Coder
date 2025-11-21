@@ -64,7 +64,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="d-flex align-items-center gap-2 position-relative" ref={cartRef}>
-                <CartWidget onClick={handleCartClick} isOpen={cartOpen}/>
+                <CartWidget onClick={handleCartClick} isOpen={cartOpen} onCloseCart={() => setCartOpen(false)}/>
             </div>
         </div>
 

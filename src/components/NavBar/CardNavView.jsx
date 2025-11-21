@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const CardNavView = ({cart, removeItem, isOpen, totalPrice}) => {
+const CardNavView = ({cart, removeItem, isOpen, totalPrice, clearCart, onCloseCart}) => {
   return (
       <div className={`contenedor-carrito ${isOpen ? '' : 'esconder-carrito'}`}>
           <div className="carrito">
@@ -45,7 +45,8 @@ const CardNavView = ({cart, removeItem, isOpen, totalPrice}) => {
                   <div className="carrito-comprar">
                       <p>Total: <strong className="total-pagar fw-bold">${totalPrice.toFixed(2)}</strong></p>
                   </div>
-                  <Link to="/cart" className="btn btn-dark">Comprar</Link>
+                  <Link to="/cart" className="btn btn-dark" onClick={onCloseCart}>Comprar</Link>
+                  <button className='btn btn-danger mt-3' onClick={() => {clearCart(); onCloseCart();}}>Borrar carrito</button>
               </div>
           )}
       </div>

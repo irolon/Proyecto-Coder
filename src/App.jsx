@@ -6,7 +6,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import '../src/css/style.css'
 
-import CardForm from './components/Cards/CardForm';
 import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/Inicio/ItemListContainer';
 import HomeListContainer from './components/Inicio/HomeItemListContainer';
