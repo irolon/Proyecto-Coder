@@ -22,7 +22,7 @@ Synchro es una plataforma de comercio electrónico desarrollada en **React** que
 ## 📦 Funcionalidades Principales
 
 ### 🏠 Página de Inicio
-- Hero con mensaje principal y fondo visual atractivo.
+- Sección principal con mensaje destacado y fondo visual atractivo.
 - Muestra una primera fila de relojes destacados.
 - Botón **"Ver más"** que despliega productos adicionales.
 - Sección especial para **Smartwatches**, también con botón de expansión.
@@ -76,39 +76,6 @@ Una vez validado el formulario:
 - Se genera un **ID de orden único**.
 - Se muestra mensaje de agradecimiento al usuario.
 - Opción para regresar al inicio.
-
----
-
-## 📁 Estructura del Proyecto (Ejemplo)
-
-```
-src/
-│── components/
-│   ├── Navbar.jsx
-│   ├── Footer.jsx
-│   ├── ProductCard.jsx
-│   ├── ProductDetail.jsx
-│   ├── Cart.jsx
-│   └── CheckoutForm.jsx
-│
-│── pages/
-│   ├── Home.jsx
-│   ├── Clasicos.jsx
-│   ├── Deportivos.jsx
-│   ├── Inteligentes.jsx
-│   └── OrderSuccess.jsx
-│
-│── context/
-│   └── CartContext.jsx
-│
-│── data/
-│   └── products.js
-│
-│── firebase/
-│   └── config.js
-│
-└── App.jsx
-```
 
 ---
 
