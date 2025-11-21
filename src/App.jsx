@@ -31,7 +31,7 @@ function App() {
                 <HomeListContainer />   
               </>
           } />
-          <Route path='/category/:type'  element={<SeccionRelojes />} />
+          <Route path='/categoria/:type'  element={<SeccionRelojes />} />
           <Route path="/productos/:id" element={<CardDetailContainer />} />
           <Route path='/cart' element={<CartContainer />} />
           <Route path='/checkout' element={<CheckOut />} />
