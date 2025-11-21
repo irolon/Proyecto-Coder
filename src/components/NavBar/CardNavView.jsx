@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 const CardNavView = ({cart, removeItem, isOpen, totalPrice, clearCart, onCloseCart}) => {
   return (
       <div className={`contenedor-carrito ${isOpen ? '' : 'esconder-carrito'}`}>
-          <div className="carrito">
               <div className="carrito-productos">
-                  <div className="carrito-items-contenedor">
                       <h3 className="text-center my-3">Carrito de Compras</h3>
-                      <div className="info-carrito d-flex flex-column gap-3 px-3">
+                      <div className="info-carrito d-flex flex-column gap-3">
                           {cart.length === 0 ? (
                               <p className="text-center text-muted">Tu carrito está vacío</p>
                           ) : (
@@ -37,9 +35,7 @@ const CardNavView = ({cart, removeItem, isOpen, totalPrice, clearCart, onCloseCa
                               ))
                           )}
                       </div>
-                  </div>
               </div>
-          </div>
           {cart.length > 0 && (
               <div className="carrito-total">
                   <div className="carrito-comprar">

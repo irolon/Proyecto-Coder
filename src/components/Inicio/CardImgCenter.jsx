@@ -11,7 +11,7 @@ const CardImgCenter = () => {
 
         <div className="position-relative z-1">
             <h2 className="display-5 fw-bold mb-3">Colección SmartWatch</h2>
-            <Link to="/category/inteligentes" className="btn btn-light btn-lg rounded-pill px-5 py-2 mt-5">DESCUBRIR</Link>
+            <Link to="/categoria/inteligentes" className="btn btn-light btn-lg rounded-pill px-5 py-2 mt-5">DESCUBRIR</Link>
         </div>
 
     </section>
