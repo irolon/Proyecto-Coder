@@ -35,7 +35,14 @@ const CardItem = ({ producto }) => {
                     <p className="mb-2"><strong>Categoría:</strong> {producto.categoria}</p>
                     <p className="mb-3"><strong>Stock disponible:</strong> {producto.stock}</p>
                     {purchase ? (
-                        <Link to="/cart" className="btn btn-success">Finalizar Compra</Link>
+                        <>  
+                            <div className="mt-5">
+                                <Link to="/" className="btn btn-outline-dark fw-bold">Continuar comprando</Link>
+                                <Link to="/cart" className="btn btn-success  ms-5">Finalizar Compra</Link>
+                            </div>
+
+
+                        </>
                     ) : (
                         <ItemCount stock={producto.stock} onAdd={onAdd} />
                     )}

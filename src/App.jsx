@@ -14,6 +14,7 @@ import CheckOut from './components/Checkout/CheckOut';
 import CardDetailContainer from './components/Cards/CardDetailContainer';
 import CartContainer from './components/Cards/CartContainer';
 import SeccionRelojes from './components/Navegacion/SeccionRelojes';
+import Error404 from './components/not-found/Error404';
 import Footer from './components/Footer/Footer';
 import { CartProvider } from './context/CartContext';
 
@@ -35,7 +36,7 @@ function App() {
           <Route path="/productos/:id" element={<CardDetailContainer />} />
           <Route path='/cart' element={<CartContainer />} />
           <Route path='/checkout' element={<CheckOut />} />
-
+          <Route path='*' element={<Error404 />} />
           </Routes>
         </CartProvider>
         <Footer />
