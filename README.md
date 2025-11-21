@@ -14,8 +14,8 @@ Synchro es una plataforma de comercio electrónico desarrollada en **React** que
 - CSS personalizado
 
 ### **Backend / Servicios**
-- Firebase (hosting y manejo de imágenes)
-- LocalStorage (persistencia del carrito)
+- Firebase 
+
 
 ---
 
