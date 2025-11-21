@@ -84,7 +84,7 @@ Una vez validado el formulario:
 1. Clonar el repositorio:
 
 ```
-git clone <url-del-repositorio>
+git clone https://github.com/irolon/Proyecto-Coder
 ```
 
 2. Entrar al proyecto:
@@ -99,16 +99,7 @@ cd synchro
 npm install
 ```
 
-4. Configurar Firebase  
-Crear archivo:
-
-```
-src/firebase/config.js
-```
-
-Con las variables provistas por Firebase.
-
-5. Ejecutar el proyecto:
+4. Ejecutar el proyecto:
 
 ```
 npm run dev
