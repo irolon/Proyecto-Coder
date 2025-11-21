@@ -11,7 +11,6 @@ import EmptyCart from '../Cards/EmptyCart';
 
 const CheckOut = () => {
   const [buyer, setBuyer] = useState({});
-  const [secondMail, setSecondMail] = useState('');
   const [orderId, setOrderId] = useState(null);
   const [error, setError] = useState(null);
   const {cart, total, clearCart } = useContext(CartContext);
@@ -27,12 +26,15 @@ const CheckOut = () => {
   const finalizarCompra = (e) => {
     e.preventDefault();
     console.log('Datos del buyer:', buyer);
+
     
-    if(!buyer.nombre || !buyer.apellido || !buyer.direccion || !buyer.email || !secondMail ) {
+    if(!buyer.nombre || !buyer.apellido || !buyer.direccion || !buyer.email || !buyer.repetirEmail) {
+
+
       setError('Por favor complete todos los campos');
       return;
     }
-    if(!buyer.email || !secondMail || buyer.email !== secondMail){
+    if(!buyer.email || !buyer.repetirEmail || buyer.email !== buyer.repetirEmail){
       setError("Los correos no coinciden");
       return;
     } else {
