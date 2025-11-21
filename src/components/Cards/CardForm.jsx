@@ -1,8 +1,8 @@
 const CardForm = ({ buyerData, finalizarCompra, error }) => {
     return (
     <div className="container my-5 ">
-        <div className="row justify-content-center">
-            <div className="col-12 col-md-8 col-lg-6 div-form">
+        <div className="row justify-content-center mt-5">
+            <div className="col-12 col-md-8 col-lg-6 div-form mt-5">
                 <h3 className="text-center mb-4">Complete sus datos</h3>
                 {error && <div className="alert alert-danger" role="alert">{error}</div>}
                 <form id="formulario-consulta">
