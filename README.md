@@ -1,16 +1,168 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Synchro – E‑Commerce de Relojes
 
-Currently, two official plugins are available:
+Synchro es una plataforma de comercio electrónico desarrollada en **React** que permite explorar, ver detalles y comprar relojes de distintos estilos: **clásicos, deportivos e inteligentes**. El sitio está diseñado con una estética moderna y limpia, integrando **Bootstrap**, **Firebase** para almacenamiento y **LocalStorage** para persistir el carrito de compras.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### **Frontend**
+- React
+- React Router
+- Bootstrap 5
+- CSS personalizado
 
-## Expanding the ESLint configuration
+### **Backend / Servicios**
+- Firebase (hosting y manejo de imágenes)
+- LocalStorage (persistencia del carrito)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Funcionalidades Principales
+
+### 🏠 Página de Inicio
+- Hero con mensaje principal y fondo visual atractivo.
+- Muestra una primera fila de relojes destacados.
+- Botón **"Ver más"** que despliega productos adicionales.
+- Sección especial para **Smartwatches**, también con botón de expansión.
+
+### 🛍️ Catálogo por Categorías
+Cada sección posee:
+- Banner propio con imagen y título.
+- Grilla de productos según categoría:
+  - **Relojes Clásicos**
+  - **Relojes Deportivos**
+  - **Relojes Inteligentes**
+- Productos con:
+  - Imagen
+  - Nombre (Marca + Modelo)
+  - Descripción
+  - Precio
+  - Botón **"Ver detalle"**
+
+### 🔎 Detalle del Producto
+Desde cualquier lista de productos se accede al detalle:
+- Imagen ampliada del reloj.
+- Descripción completa.
+- Precio y categoría.
+- Stock disponible.
+- Selector de cantidad.
+- Botón **“Agregar al carrito”**.
+
+### 🛒 Carrito de Compras
+- Vista del resumen de productos agregados.
+- Mostrar cantidad, precio unitario y subtotal por producto.
+- Botones:
+  - **Eliminar producto**
+  - **Vaciar carrito**
+  - **Finalizar compra**
+- El ícono del carrito en el navbar muestra la cantidad actualizada.
+
+### 📄 Finalizar Compra
+Formulario donde el usuario ingresa:
+- Nombre
+- Apellido
+- Dirección
+- Email
+- Confirmación de email
+
+Validaciones incluidas:
+- Campos obligatorios.
+- Ambas direcciones de correo deben coincidir.
+
+### 🎉 Confirmación de Compra
+Una vez validado el formulario:
+- Se genera un **ID de orden único**.
+- Se muestra mensaje de agradecimiento al usuario.
+- Opción para regresar al inicio.
+
+---
+
+## 📁 Estructura del Proyecto (Ejemplo)
+
+```
+src/
+│── components/
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductDetail.jsx
+│   ├── Cart.jsx
+│   └── CheckoutForm.jsx
+│
+│── pages/
+│   ├── Home.jsx
+│   ├── Clasicos.jsx
+│   ├── Deportivos.jsx
+│   ├── Inteligentes.jsx
+│   └── OrderSuccess.jsx
+│
+│── context/
+│   └── CartContext.jsx
+│
+│── data/
+│   └── products.js
+│
+│── firebase/
+│   └── config.js
+│
+└── App.jsx
+```
+
+---
+
+## 🔧 Instalación
+
+1. Clonar el repositorio:
+
+```
+git clone <url-del-repositorio>
+```
+
+2. Entrar al proyecto:
+
+```
+cd synchro
+```
+
+3. Instalar dependencias:
+
+```
+npm install
+```
+
+4. Configurar Firebase  
+Crear archivo:
+
+```
+src/firebase/config.js
+```
+
+Con las variables provistas por Firebase.
+
+5. Ejecutar el proyecto:
+
+```
+npm run dev
+```
+
+---
+
+## ▶️ Ejecución
+
+Una vez iniciado, abrir:
+
+```
+http://localhost:5173
+```
+
+---
+
+## ✨ Autor
+
+**Ignacio Rolon Marecos**  
+Desarrollador Frontend – Proyecto E‑Commerce Synchro
+
+---
+
